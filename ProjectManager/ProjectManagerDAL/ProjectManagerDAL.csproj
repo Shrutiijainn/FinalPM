@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6BA18F51-E306-41C6-A2F9-5942B563ED9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectManagerDAL</RootNamespace>
+    <AssemblyName>ProjectManagerDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\201910040959098_Project and Employee entity added.cs" />
+    <Compile Include="Migrations\201910040959098_Project and Employee entity added.Designer.cs">
+      <DependentUpon>201910040959098_Project and Employee entity added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041003507_Task entity added.cs" />
+    <Compile Include="Migrations\201910041003507_Task entity added.Designer.cs">
+      <DependentUpon>201910041003507_Task entity added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041128221_data added in employee table.cs" />
+    <Compile Include="Migrations\201910041128221_data added in employee table.Designer.cs">
+      <DependentUpon>201910041128221_data added in employee table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041137172_change in datatype.cs" />
+    <Compile Include="Migrations\201910041137172_change in datatype.Designer.cs">
+      <DependentUpon>201910041137172_change in datatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041156532_add data in database project and task.cs" />
+    <Compile Include="Migrations\201910041156532_add data in database project and task.Designer.cs">
+      <DependentUpon>201910041156532_add data in database project and task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041200052_change in databases.cs" />
+    <Compile Include="Migrations\201910041200052_change in databases.Designer.cs">
+      <DependentUpon>201910041200052_change in databases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041201186_Add data.cs" />
+    <Compile Include="Migrations\201910041201186_Add data.Designer.cs">
+      <DependentUpon>201910041201186_Add data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041202450_Changes Done.cs" />
+    <Compile Include="Migrations\201910041202450_Changes Done.Designer.cs">
+      <DependentUpon>201910041202450_Changes Done.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910160858058_updated change db.cs" />
+    <Compile Include="Migrations\201910160858058_updated change db.Designer.cs">
+      <DependentUpon>201910160858058_updated change db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910160941360_task updated.cs" />
+    <Compile Include="Migrations\201910160941360_task updated.Designer.cs">
+      <DependentUpon>201910160941360_task updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910161014464_adding task test.cs" />
+    <Compile Include="Migrations\201910161014464_adding task test.Designer.cs">
+      <DependentUpon>201910161014464_adding task test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910161056099_adding task test1.cs" />
+    <Compile Include="Migrations\201910161056099_adding task test1.Designer.cs">
+      <DependentUpon>201910161056099_adding task test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProjectManagerModel.cs" />
+    <Compile Include="ProjectRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskNRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910040959098_Project and Employee entity added.resx">
+      <DependentUpon>201910040959098_Project and Employee entity added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041003507_Task entity added.resx">
+      <DependentUpon>201910041003507_Task entity added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041128221_data added in employee table.resx">
+      <DependentUpon>201910041128221_data added in employee table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041137172_change in datatype.resx">
+      <DependentUpon>201910041137172_change in datatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041156532_add data in database project and task.resx">
+      <DependentUpon>201910041156532_add data in database project and task.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041200052_change in databases.resx">
+      <DependentUpon>201910041200052_change in databases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041201186_Add data.resx">
+      <DependentUpon>201910041201186_Add data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041202450_Changes Done.resx">
+      <DependentUpon>201910041202450_Changes Done.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910160858058_updated change db.resx">
+      <DependentUpon>201910160858058_updated change db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910160941360_task updated.resx">
+      <DependentUpon>201910160941360_task updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910161014464_adding task test.resx">
+      <DependentUpon>201910161014464_adding task test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910161056099_adding task test1.resx">
+      <DependentUpon>201910161056099_adding task test1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{9ec55159-b70f-4401-989a-3ba46e67cfc8}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exceptions\Exceptions.csproj">
+      <Project>{fe821716-4b96-4f42-82ad-7740423c76b3}</Project>
+      <Name>Exceptions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

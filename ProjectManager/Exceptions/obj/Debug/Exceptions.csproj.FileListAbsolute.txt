@@ -1,0 +1,6 @@
+D:\ProjectManager\Exceptions\bin\Debug\Exceptions.dll
+D:\ProjectManager\Exceptions\bin\Debug\Exceptions.pdb
+D:\ProjectManager\Exceptions\obj\Debug\Exceptions.csprojAssemblyReference.cache
+D:\ProjectManager\Exceptions\obj\Debug\Exceptions.csproj.CoreCompileInputs.cache
+D:\ProjectManager\Exceptions\obj\Debug\Exceptions.dll
+D:\ProjectManager\Exceptions\obj\Debug\Exceptions.pdb
