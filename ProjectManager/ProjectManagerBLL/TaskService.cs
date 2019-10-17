@@ -6,49 +6,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
-using ProjectmanagerDAL;
 
 namespace ProjectmanagerBLL
+{
+    public class TaskService
     {
-        public class TaskService
+        static TaskNRepository TaskRepo = null;
+        public TaskService()
         {
-            static TaskNRepository TaskNRepo = null;
-            public TaskService()
+            TaskRepo = new TaskNRepository();
+        }
+        public List<TaskN> Display()
+        {
+            try
             {
-
+                return TaskRepo.Display().ToList();
             }
-            public List<TaskN> Display()
+            catch (ProjectManagerException e)
             {
-                try
-                {
-                    using (TaskNRepo =  new TaskNRepository())
-                    {
-                        return TaskNRepo.Display().ToList();
-                    }
-                }
-                catch (ProjectManagerException e)
-            {
-                    throw e;
-                }
-                }
-                public bool AddTask(TaskN proj)
-                {
-                    try
-                    {
-                        using (TaskNRepo = new TaskNRepository())
-                        {
-                            return TaskNRepo.Add(proj);
-                        }
-                    }
-                    catch (ProjectManagerException e)
-                    {
-
-                        throw e;
-                    }
-                }
-
-
+                throw e;
             }
         }
-    
-
+        public bool AddTask(TaskN proj)
+        {
+            try
+            {
+                return TaskRepo.Add(proj);
+            }
+            catch (ProjectManagerException e)
+            {
+                throw e;
+            }
+        }
+    }
+}

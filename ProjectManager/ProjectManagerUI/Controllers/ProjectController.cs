@@ -13,52 +13,88 @@ namespace ProjectManagerUI.Controllers
 {
     public class ProjectController : Controller
     {
+        IRepository<Employee> EmpRepo;
+
+        ProjectService objProjectService = null;
+
+        public ProjectController()
+        {
+            objProjectService = new ProjectService();
+            EmpRepo = new EmployeeRepository();
+        }
         // GET: Project
         public ActionResult Index()
         {
-            return View("Home");
+            return View();
         }
         public ActionResult ViewProjects()
         {
             try
             {
-                var objProjectService = new ProjectService();
                 var list = objProjectService.Display();
                 var ViewList = new List<ProjectViewModel>();
                 foreach (var item in list)
                 {
-                    ViewList.Add(new ProjectViewModel() { ProjectId = item.ProjectId, ProjectTitle = item.ProjectTitle, ProjectStartDate = item.ProjectStartDate, ProjectEndDate = item.ProjectEndDate, EmployeeId = item.EmployeeId });
+                    ViewList.Add(new ProjectViewModel()
+                    {
+                        ProjectId = item.ProjectId,
+                        ProjectTitle = item.ProjectTitle,
+                        ProjectStartDate = item.ProjectStartDate,
+                        ProjectEndDate = item.ProjectEndDate,
+                        EmployeeId = item.EmployeeId
+                    });
                 }
                 return View("ViewProjects", ViewList);
             }
             catch (ProjectManagerException e)
             {
-                return Content("Error"+e.Message);
+                return Content("Error" + e.Message);
             }
         }
         public ActionResult AddProject()
         {
-            return View("AddProject");
+            var item = new ProjectViewModel();
+            item.Employees = new SelectList(EmpRepo.Display(), "EmployeeId", "EmployeeName");
+            return View(item);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(true)]
         public ActionResult AddProject(ProjectViewModel item)
         {
-            Project proj = new Project() { ProjectId = item.ProjectId, ProjectTitle = item.ProjectTitle, ProjectStartDate = item.ProjectStartDate, ProjectEndDate = item.ProjectEndDate, EmployeeId = item.EmployeeId };
             try
             {
-                var objProjectService = new ProjectService();
-                if (objProjectService.AddProject(proj))
+                if (ModelState.IsValid)
                 {
-
-                    return Content("Project added");
+                    var Project = new Project()
+                    {
+                        ProjectId = item.ProjectId,
+                        ProjectTitle = item.ProjectTitle,
+                        ProjectStartDate = item.ProjectStartDate,
+                        ProjectEndDate = item.ProjectEndDate,
+                        EmployeeId = item.EmployeeId
+                    };
+                    var Added = objProjectService.AddProject(Project);
+                    if (Added)
+                    {
+                        return RedirectToAction("ViewProjects");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Failed to add");
+                        return View(item);
+                    }
                 }
-                return Content("Cannot Add project");
+                else
+                {
+                    ModelState.AddModelError("", "One or More validation failed");
+                    return View(item);
+                }
             }
             catch (ProjectManagerException e)
             {
-
-                throw;
+                return Content("Error" + e.Message);
             }
         }
     }

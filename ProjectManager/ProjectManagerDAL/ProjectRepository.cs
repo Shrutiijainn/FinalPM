@@ -3,49 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities;
 using Exceptions;
-using ProjectManagerDAL;
 
-namespace ProjectmanagerDAL
+namespace ProjectManagerDAL
 {
-    /**
-     * Repository for managing Projects
-         */
     public class ProjectRepository : IRepository<Project>
     {
-        public List<Project> Display()
+        ProjectManagerModel objContext;
+
+        public ProjectRepository()
         {
-            try
-            {
-                using (var objContext = new ProjectManagerModel())
-                {
-                    if (objContext.Projects.Count() > 0)
-                    {
-                        return objContext.Projects.ToList();
-                    }
-                    else
-                    {
-                        throw new ProjectManagerException("No Data To Display");
-                    }
-                }
-            }
-            catch (ProjectManagerException e)
-            {
-                throw e;
-            }
+            objContext = new ProjectManagerModel();
         }
+
         public bool Add(Project obj)
         {
             try
             {
                 if (obj != null)
                 {
-                    using (var objContext = new ProjectManagerModel())
-                    {
-                        objContext.Projects.Add(obj);
-                        return objContext.SaveChanges() > 0;
-                    }
+                    objContext.Projects.Add(obj);
+                    return objContext.SaveChanges() > 0;
                 }
                 else
                 {
@@ -60,17 +38,38 @@ namespace ProjectmanagerDAL
 
         public Project Find(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return objContext.Projects.Find(id);
+            }
+            catch (ProjectManagerException e)
+            {
+                throw e;
+            }
+            throw new ProjectManagerException("Error finding Project");
         }
-        ProjectManagerModel _dbContext;
 
-        public ProjectRepository()
+        public List<Project> Display()
         {
-            _dbContext = new ProjectManagerModel();
+            try
+            {
+                if (objContext.Projects.Count() > 0)
+                {
+                    return objContext.Projects.ToList();
+                }
+                else
+                {
+                    throw new ProjectManagerException("No Data To Display");
+                }
+            }
+            catch (ProjectManagerException e)
+            {
+                throw e;
+            }
         }
         public void Dispose()
         {
-            _dbContext.Dispose();
+            objContext.Dispose();
         }
     }
 }

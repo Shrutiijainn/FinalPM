@@ -1,5 +1,4 @@
-﻿using ProjectmanagerDAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,46 +8,35 @@ using Entities;
 using Exceptions;
 
 namespace ProjectManagerBLL
+{
+    public class ProjectService
     {
-        public class ProjectService
+        static ProjectRepository ProjectRepo = null;
+        public ProjectService()
         {
-            static ProjectRepository ProjectRepo = null;
-            public ProjectService()
+            ProjectRepo = new ProjectRepository();
+        }
+        public List<Project> Display()
+        {
+            try
             {
-
+                return ProjectRepo.Display().ToList();
             }
-            public List<Project> Display()
+            catch (ProjectManagerException e)
             {
-                try
-                {
-                    using (ProjectRepo = new ProjectRepository())
-                    {
-                        return ProjectRepo.Display().ToList();
-                    }
-                }
-                catch (ProjectManagerException e)
-            {
-                    throw e;
-                }
-                }
-                public bool AddProject(Project proj)
-                {
-                    try
-                    {
-                        using (ProjectRepo = new ProjectRepository())
-                        {
-                            return ProjectRepo.Add(proj);
-                        }
-                    }
-                    catch (ProjectManagerException e)
-                    {
-
-                        throw e;
-                    }
-                }
-
-
+                throw e;
             }
         }
-    
-
+        public bool AddProject(Project proj)
+        {
+            try
+            {
+                return ProjectRepo.Add(proj);
+            }
+            catch (ProjectManagerException e)
+            {
+                throw e;
+            }
+        }
+    }
+}
