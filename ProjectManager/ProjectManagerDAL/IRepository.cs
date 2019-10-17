@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagerDAL
 {
-    interface IRepository<T> : IDisposable
+    public interface IRepository<T> : IDisposable
     {
         List<T> Display();
         T Find(int id);

@@ -27,9 +27,9 @@ namespace ProjectManagerUI.Controllers
                 var ViewList = new List<TaskViewModel>();
                 foreach (var item in list)
                 {
-                    ViewList.Add(new TaskViewModel() { TaskId = item.TaskId, TaskName = item.TaskName, TaskDescription = item.TaskDescription, TaskStartDate = item.TaskStartDate, TaskEndDate = item.TaskEndDate, ProjectId = item.ProjectId, EmployeeId = item.EmployeeId });
+                    ViewList.Add(new TaskViewModel() { TaskId = item.TaskId, TaskName = item.TaskName, TaskDescription = item.TaskDescription, TaskStartDate = item.TaskStartDate, TaskEndDate = item.TaskEndDate, TaskStatus=item.TaskStatus, ProjectId = item.ProjectId, EmployeeId = item.EmployeeId });
                 }
-                return View("ViewTask", ViewList);
+                return View("ViewTasks", ViewList);
             }
             catch (ProjectManagerException e)
             {
@@ -52,8 +52,7 @@ namespace ProjectManagerUI.Controllers
                 var objTaskService = new TaskService();
                 if (objTaskService.AddTask(task))
                 {
-
-                    return Content("Task added");
+                    return RedirectToAction("ViewProjects");
                 }
                 return Content("Cannot Add Task");
             }

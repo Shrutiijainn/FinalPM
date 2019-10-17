@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//using System.Threading.Tasks;
-using Entities;
+using System.Threading.Tasks;
 using Exceptions;
-using ProjectManagerDAL;
 
-namespace ProjectmanagerDAL
+namespace ProjectManagerDAL
 {
-    /**
-     * Repository for managing Tasks
-         */
     public class TaskNRepository : IRepository<TaskN>
     {
+        ProjectManagerModel objContext;
+
+        public TaskNRepository()
+        {
+            objContext = new ProjectManagerModel();
+        }
+
         public bool Add(TaskN obj)
         {
             try
             {
                 if (obj != null)
                 {
-                    using (var objContext = new ProjectManagerModel())
-                    {
-                        objContext.Tasks.Add(obj);
-                        return objContext.SaveChanges() > 0;
-                    }
+                    objContext.Tasks.Add(obj);
+                    return objContext.SaveChanges() > 0;
                 }
                 else
                 {
@@ -37,27 +36,29 @@ namespace ProjectmanagerDAL
             }
         }
 
-
-        //public Project Find(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+        public TaskN Find(int id)
+        {
+            try
+            {
+                return objContext.Tasks.Find(id);
+            }
+            catch (Exception ex)
+            {
+                throw new ProjectManagerException("Error finding Task" + ex);
+            }
+        }
 
         public List<TaskN> Display()
         {
             try
             {
-                using (var objContext = new ProjectManagerModel())
+                if (objContext.Tasks.Count() > 0)
                 {
-                    if (objContext.Tasks.Count() > 0)
-                    {
-                        return objContext.Tasks.ToList();
-                    }
-                    else
-                    {
-                        throw new ProjectManagerException("No Data To Display");
-                    }
+                    return objContext.Tasks.ToList();
+                }
+                else
+                {
+                    throw new ProjectManagerException("No Data To Display");
                 }
             }
             catch (ProjectManagerException e)
@@ -65,25 +66,37 @@ namespace ProjectmanagerDAL
                 throw e;
             }
         }
-        ProjectManagerModel _dbContext;
-        public TaskNRepository()
+
+
+        public List<TaskN> GetTasks(int projectId)
         {
-            _dbContext = new ProjectManagerModel();
+            TaskN task = new TaskN();
+            //return new List<Rating>() {
+            //    new Rating(){ RatingValue=5, Customer="Jojo" },
+            //    new Rating(){ RatingValue=3, Customer="Sam" }
+            //};
+
+            try
+            {
+                task = objContext.Tasks.Find(projectId);
+                return objContext.Tasks.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new ProjectManagerException("Error finding Task" + ex);
+            }
+
         }
+
+        public bool AddTask(TaskN obj)
+        {
+            return true;
+        }
+
         public void Dispose()
         {
-            _dbContext.Dispose();
+            objContext.Dispose();
         }
-        //public void Dispose()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
-        TaskN IRepository<TaskN>.Find(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
-
-
