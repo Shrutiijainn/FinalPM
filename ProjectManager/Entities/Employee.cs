@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace ProjectManagerDAL
 {
-    public class Employee
+    public class Employee 
     {
         [Key]
         public int EmployeeId { get; set; }
@@ -20,5 +20,6 @@ namespace ProjectManagerDAL
         [Column(TypeName = "varchar")]
         public string EmployeeDesignation { get; set; }
 
+        
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
+using System.Web.Mvc;
 
 namespace ProjectManagerUI.ViewModels
 {
@@ -36,7 +36,7 @@ namespace ProjectManagerUI.ViewModels
         public int ProjectId { get; set; }
        
         public int EmployeeId { get; set; }
-       
-        
+
+        public SelectList Employees { get; set; }
     }
 }
