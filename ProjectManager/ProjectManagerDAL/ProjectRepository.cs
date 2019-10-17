@@ -35,6 +35,17 @@ namespace ProjectManagerDAL
                 throw e;
             }
         }
+        //public List<Employee> projectmanagerlist()
+        //{
+        //    ProjectManagerModel context = new ProjectManagerModel();
+
+        //    var Query = from item in context.Projects
+        //                select item.EmployeeId;
+        //    var q = from Employee in context.Employees
+        //            where Employee.EmployeeDesignation == "ProjectManager" && !Query.Contains(Employee.EmployeeId)
+        //            select Employee;
+        //    return q.ToList();
+        //}
 
         public Project Find(int id)
         {

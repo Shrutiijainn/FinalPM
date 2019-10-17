@@ -13,7 +13,7 @@ namespace ProjectManagerUI.Controllers
 {
     public class ProjectController : Controller
     {
-        IRepository<Employee> EmpRepo;
+        EmployeeRepository EmpRepo;
 
         ProjectService objProjectService = null;
 
@@ -54,9 +54,10 @@ namespace ProjectManagerUI.Controllers
         public ActionResult AddProject()
         {
             var item = new ProjectViewModel();
-            item.Employees = new SelectList(EmpRepo.Display(), "EmployeeId", "EmployeeName");
+            item.Employees = new SelectList(EmpRepo.DisplayDesignation(), "EmployeeId", "EmployeeName","EmployeeDesignation");
             return View(item);
         }
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -96,6 +97,7 @@ namespace ProjectManagerUI.Controllers
             {
                 return Content("Error" + e.Message);
             }
+             
         }
     }
 }

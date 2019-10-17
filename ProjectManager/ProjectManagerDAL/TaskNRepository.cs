@@ -71,10 +71,7 @@ namespace ProjectManagerDAL
         public List<TaskN> GetTasks(int projectId)
         {
             TaskN task = new TaskN();
-            //return new List<Rating>() {
-            //    new Rating(){ RatingValue=5, Customer="Jojo" },
-            //    new Rating(){ RatingValue=3, Customer="Sam" }
-            //};
+           
 
             try
             {
