@@ -13,14 +13,14 @@ namespace ProjectManagerUI.Controllers
 {
     public class ProjectController : Controller
     {
-        IRepository<Employee> EmpRepo;
+        EmployeeService EmpServ;
 
         ProjectService objProjectService = null;
 
         public ProjectController()
         {
             objProjectService = new ProjectService();
-            EmpRepo = new EmployeeRepository();
+            EmpServ = new EmployeeService();
         }
         // GET: Project
         public ActionResult Index()
@@ -54,7 +54,7 @@ namespace ProjectManagerUI.Controllers
         public ActionResult AddProject()
         {
             var item = new ProjectViewModel();
-            item.Employees = new SelectList(EmpRepo.Display(), "EmployeeId", "EmployeeName");
+            item.Employees = new SelectList(EmpServ.DisplayDesignation(), "EmployeeId", "EmployeeName", "EmployeeDesignation");
             return View(item);
         }
 
@@ -97,5 +97,11 @@ namespace ProjectManagerUI.Controllers
                 return Content("Error" + e.Message);
             }
         }
+
+        //public JsonResult GetEmployeeDesignation(int EmployeeId)
+        //{
+        //    var Designation = EmpRepo.Find(EmployeeId).EmployeeName;
+        //    return Json(Designation, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

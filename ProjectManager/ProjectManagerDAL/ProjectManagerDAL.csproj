@@ -102,6 +102,10 @@
     <Compile Include="Migrations\201910161056099_adding task test1.Designer.cs">
       <DependentUpon>201910161056099_adding task test1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910170858550_Project task added.cs" />
+    <Compile Include="Migrations\201910170858550_Project task added.Designer.cs">
+      <DependentUpon>201910170858550_Project task added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProjectManagerModel.cs" />
     <Compile Include="ProjectRepository.cs" />
@@ -150,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910161056099_adding task test1.resx">
       <DependentUpon>201910161056099_adding task test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910170858550_Project task added.resx">
+      <DependentUpon>201910170858550_Project task added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

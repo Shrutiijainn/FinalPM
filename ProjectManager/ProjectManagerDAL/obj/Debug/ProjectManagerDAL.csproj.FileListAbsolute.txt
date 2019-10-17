@@ -102,3 +102,4 @@ C:\Users\Administrator\Desktop\FinalPM\ProjectManager\ProjectManagerDAL\obj\Debu
 C:\Users\Administrator\Desktop\FinalPM\ProjectManager\ProjectManagerDAL\obj\Debug\ProjectManagerDAL.csproj.CopyComplete
 C:\Users\Administrator\Desktop\FinalPM\ProjectManager\ProjectManagerDAL\obj\Debug\ProjectManagerDAL.dll
 C:\Users\Administrator\Desktop\FinalPM\ProjectManager\ProjectManagerDAL\obj\Debug\ProjectManagerDAL.pdb
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\ProjectManagerDAL\obj\Debug\ProjectManagerDAL.Migrations.Projecttaskadded.resources

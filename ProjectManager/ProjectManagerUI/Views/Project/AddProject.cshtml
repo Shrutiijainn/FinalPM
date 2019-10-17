@@ -99,5 +99,12 @@
                 return date;
             }
         });
+
+        $(function () {
+            var val = $('#EmployeeId').val;
+            $.each(val, function (index, element) {
+                console.log(index + ' ' + element)
+            });
+        });
     </script>
 }

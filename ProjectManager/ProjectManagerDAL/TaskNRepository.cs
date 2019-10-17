@@ -71,15 +71,15 @@ namespace ProjectManagerDAL
         public List<TaskN> GetTasks(int projectId)
         {
             TaskN task = new TaskN();
-            //return new List<Rating>() {
-            //    new Rating(){ RatingValue=5, Customer="Jojo" },
-            //    new Rating(){ RatingValue=3, Customer="Sam" }
-            //};
 
             try
             {
-                task = objContext.Tasks.Find(projectId);
-                return objContext.Tasks.ToList();
+                //task = objContext.Tasks.Find(projectId);
+                //return objContext.Tasks.ToList();
+                var q = from item in objContext.Tasks
+                        where item.ProjectId == projectId
+                        select item;
+                return q.ToList();
             }
             catch (Exception ex)
             {
