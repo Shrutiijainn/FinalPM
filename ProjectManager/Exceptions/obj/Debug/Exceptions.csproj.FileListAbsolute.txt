@@ -4,3 +4,9 @@ D:\ProjectManager\Exceptions\obj\Debug\Exceptions.csprojAssemblyReference.cache
 D:\ProjectManager\Exceptions\obj\Debug\Exceptions.csproj.CoreCompileInputs.cache
 D:\ProjectManager\Exceptions\obj\Debug\Exceptions.dll
 D:\ProjectManager\Exceptions\obj\Debug\Exceptions.pdb
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\Exceptions\bin\Debug\Exceptions.dll
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\Exceptions\bin\Debug\Exceptions.pdb
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\Exceptions\obj\Debug\Exceptions.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\Exceptions\obj\Debug\Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\Exceptions\obj\Debug\Exceptions.dll
+C:\Users\Administrator\Desktop\FinalPM\ProjectManager\Exceptions\obj\Debug\Exceptions.pdb
