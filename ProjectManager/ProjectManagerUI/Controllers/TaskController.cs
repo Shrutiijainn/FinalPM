@@ -11,8 +11,18 @@ using ProjectmanagerBLL;
 
 namespace ProjectManagerUI.Controllers
 {
+    
     public class TaskController : Controller
     {
+        EmployeeRepository EmpRepo = null;
+        TaskNRepository TaskRepo = null;
+
+        public TaskController()
+        {
+            EmpRepo = new EmployeeRepository();
+            TaskRepo = new TaskNRepository();
+        }
+
         // GET: Task
         public ActionResult Index()
         {
@@ -38,7 +48,9 @@ namespace ProjectManagerUI.Controllers
         }
         public ActionResult AddTask()
         {
-            return View("AddTask");
+            var item = new TaskViewModel();
+            item.Employees = new SelectList(TaskRepo.Displaypendigtasks(), "EmployeeId", "EmployeeName", "EmployeeDesignation");
+            return View(item);
         }
 
 
